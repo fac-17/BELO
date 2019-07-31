@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test.js | tap-spec",
+    "test": "tape test.js | tap-spec",
     "lint": "eslint"
   },
   "repository": {
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/fac-17/BELO#readme",
   "devDependencies": {
-    "eslint": "^6.1.0"
+    "eslint": "^6.1.0",
+    "tape": "^4.11.0"
   },
   "dependencies": {
     "tap-spec": "^5.0.0"
