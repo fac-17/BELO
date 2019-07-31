@@ -20,5 +20,11 @@ module.exports = {
       }
     });
   },
-  notFound(req, res) {}
+  notFound(req, res) {
+    res.writeHead(404, { "content-type": "text/html" });
+    res.end("404: File not found");
+    //request will still contain url but will not relate to real file
+
+    //file doesn't exist so need to respond with header with 404 not found + res.end with message
+  }
 };
