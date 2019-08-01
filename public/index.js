@@ -1,40 +1,37 @@
-//import { isMainThread } from "worker_threads";
-
-let submit = document.querySelector(".query__submit");
+const submit = document.querySelector(".query__submit");
 
 submit.addEventListener("click", e => {
   e.preventDefault();
-  let queryInput = document.querySelector(".query__input").value;
+  const queryInput = document.querySelector(".query__input").value;
   backendCall(queryInput);
 });
 
 const RenderArticles = apiObject => {
-  let section = document.querySelector(".article__section");
+  const section = document.querySelector(".article__section");
   section.innerHTML = "";
-  let articles = apiObject.articles;
-  console.log(articles);
+  const articles = apiObject.articles;
   articles.forEach(e => {
-    let article = document.createElement("article");
+    const article = document.createElement("article");
     article.classList.add("article");
-    let img = document.createElement("img");
+    const img = document.createElement("img");
     img.classList.add("article__image");
     img.src = e.urlToImage;
     img.alt = "image from external source";
     article.appendChild(img);
-    let headline = document.createElement("h2");
+    const headline = document.createElement("h2");
     headline.classList.add("article__headline");
-    let link = document.createElement("a");
+    const link = document.createElement("a");
     link.href = e.url;
     link.textContent = e.title;
     link.classList.add("article__link");
     link.target = "_blank";
     headline.appendChild(link);
     article.appendChild(headline);
-    let description = document.createElement("p");
+    const description = document.createElement("p");
     description.classList.add("article__description");
     description.textContent = e.description;
     article.appendChild(description);
-    let content = document.createElement("p");
+    const content = document.createElement("p");
     content.classList.add("article__content");
     content.textContent = e.content;
     article.appendChild(content);
@@ -43,13 +40,11 @@ const RenderArticles = apiObject => {
 };
 
 const backendCall = queryInput => {
-  let xml = new XMLHttpRequest();
-  let url = `/everything?q=${queryInput}`;
-  console.log(url);
+  const xml = new XMLHttpRequest();
+  const url = `/everything?q=${queryInput}`;
   xml.onreadystatechange = () => {
     if (xml.readyState === 4 && xml.status === 200) {
-      let APIResponse = JSON.parse(xml.responseText);
-      console.log(APIResponse);
+      const APIResponse = JSON.parse(xml.responseText);
       RenderArticles(APIResponse);
     }
   };
