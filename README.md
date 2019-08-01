@@ -141,7 +141,7 @@ It has to contain actual key from newsapi.org
 - DOM manipulation with API response data
 - Integrating Tarvis CI with GitHub and Heroku
 - Use https module
+- Manually create a code coverage reports and integrate that with CodeCov
 - Kim Kardashian is changing her shapewear brand name after uproar
 
-![](https://i.imgur.com/x5XWU1E.jpg)
 
