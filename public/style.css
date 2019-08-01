@@ -72,7 +72,8 @@ input {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   grid-template-areas:
-    "image image headline headline"
+    "headline headline headline headline"
+    "image image image image"
     "description description description description"
     "content content content content"
     "content content content content";
