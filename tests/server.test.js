@@ -41,13 +41,13 @@ test("Is the / route link to /public/html", t => {
     });
 });
 
-test("Is the Front End API calling the back-end", t => {
-  supertest(router)
-    .get("/everything")
-    .expect(200)
-    .expect("content-type", /html/)
-    .end((err, res) => {
-      t.equal(res.text, "");
-      t.end();
-    });
-});
+// test("Is the Front End API calling the back-end", t => {
+//   supertest(router)
+//     .get("/everything")
+//     .expect(200)
+//     .expect("content-type", /html/)
+//     .end((err, res) => {
+//       t.equal(res.text, "");
+//       t.end();
+//     });
+// });
