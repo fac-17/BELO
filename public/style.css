@@ -83,3 +83,15 @@ input {
   box-shadow: 0 1rem 1rem #ae95aa;
   margin: 1rem;
 }
+@media screen and (max-width:600px){
+  .banner {
+    flex-direction: column;
+   justify-content: flex-start;
+    height: 11vh;
+  }
+  .banner__title {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin:0;    
+  }
+}
