@@ -23,7 +23,7 @@ module.exports = {
     });
   },
   apiRequest(req, res) {
-    myRequest.myRequest(req.url, (err, apiRes) => {
+    myRequest(req.url, (err, apiRes) => {
       if (err) {
         console.log(err);
       } else {
