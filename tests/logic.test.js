@@ -8,16 +8,14 @@ test("prepareAPIcallURL returns a string", t => {
 });
 
 test("prepareAPIcallURL returns a string that contains search term", t => {
-  const actual = logic
-    .prepareAPIcallURL("love island")
-    .includes("love island");
+  const actual = logic.prepareAPIcallURL("love island").includes("love island");
   t.equal(actual, true);
   t.end();
 });
 
-test("prepareAPIcallURL returns an actual URL for a single word search term", t=>{
-    const actual = logic.prepareAPIcallURL("love");
-    const expected = "https://newsapi.org/v2/everything?q=love";
-    t.equal(actual,expected);
-    t.end();
-})
+test("prepareAPIcallURL returns an actual URL for a single word search term", t => {
+  const actual = logic.prepareAPIcallURL("love");
+  const expected = "https://newsapi.org/v2/everything?q=love";
+  t.equal(actual, expected);
+  t.end();
+});
