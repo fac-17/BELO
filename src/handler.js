@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-
 const myRequest = require("./request");
 
 module.exports = {
@@ -24,7 +23,7 @@ module.exports = {
     });
   },
   apiRequest(req, res) {
-    myRequest(req.url, (err, apiRes) => {
+    myRequest.myRequest(req.url, (err, apiRes) => {
       if (err) {
         console.log(err);
       } else {
