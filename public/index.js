@@ -12,6 +12,14 @@ const RenderArticles = apiObject => {
   console.log(articles);
   articles.forEach(e => {
     let article = document.createElement("article");
+    article.classList.add("article");
+    let img = document.createElement("img");
+    img.src = e.urlToImage;
+    img.alt = "image from external source";
+    article.appendChild(img);
+    let title = document.createElement("h2");
+    title.textContent = e.title;
+    article.appendChild(title);
     section.appendChild(article);
   });
 };
