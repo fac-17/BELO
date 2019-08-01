@@ -17,6 +17,16 @@ test("myRequest correctly fetches data", t => {
   });
 });
 
+test("myRequest correctly fetches data from https", t => {
+  request("https://jsonplaceholder.typicode.com/todos/1", (err, res) => {
+    if (res.statusCode === 200) {
+      //   t.pass("Yes, API");
+      t.deepEqual(res.body.title, "delectus aut autem");
+      t.end();
+    }
+  });
+});
+
 // test("myRequest correcly fetches data", t => {
 //   nock("https://jsonplaceholder.typicode.com")
 //     .get("/todos/1")
