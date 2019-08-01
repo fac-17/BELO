@@ -17,7 +17,7 @@ const RenderArticles = apiObject => {
     let article = document.createElement("article");
     article.classList.add("article");
     let img = document.createElement("img");
-    img.classList.add("article__img");
+    img.classList.add("article__image");
     img.src = e.urlToImage;
     img.alt = "image from external source";
     article.appendChild(img);
