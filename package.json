@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "test": "tape tests/*.test.js | tap-spec",
+    "report-coverage": " nyc report --reporter=text-lcov > coverage.lcov && codecov -t 217b5dde-a4ae-4f4b-bd6f-ba3e3901a7c0",
     "lint": "eslint"
   },
   "repository": {
@@ -20,7 +21,9 @@
   },
   "homepage": "https://github.com/fac-17/BELO#readme",
   "devDependencies": {
+    "codecov": "^3.5.0",
     "eslint": "^6.1.0",
+    "nyc": "^14.1.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
