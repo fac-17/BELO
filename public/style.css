@@ -1,10 +1,18 @@
 body {
   background-color: pink;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .article__section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .article__image {
@@ -15,14 +23,19 @@ body {
 
 .article__headline {
   grid-area: headline;
+  padding-left: 0.3rem;
 }
 
 .article__description {
   grid-area: description;
+  margin: 0.2rem 0;
+  text-align: justify;
 }
 
 .article__content {
   grid-area: content;
+  margin: 0.2rem 0;
+  text-align: justify;
 }
 
 .article {
@@ -36,4 +49,5 @@ body {
     "content content content content";
 
   max-width: 300px;
+  padding: 1rem;
 }
