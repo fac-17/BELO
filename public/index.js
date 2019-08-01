@@ -10,6 +10,7 @@ submit.addEventListener("click", e => {
 
 const RenderArticles = apiObject => {
   let section = document.querySelector(".article__section");
+  section.innerHTML = "";
   let articles = apiObject.articles;
   console.log(articles);
   articles.forEach(e => {
@@ -22,9 +23,14 @@ const RenderArticles = apiObject => {
     article.appendChild(img);
     let headline = document.createElement("h2");
     headline.classList.add("article__headline");
-    headline.textContent = e.headline;
+    let link = document.createElement("a");
+    link.href = e.url;
+    link.textContent = e.title;
+    link.classList.add("article__link");
+    link.target = "_blank";
+    headline.appendChild(link);
     article.appendChild(headline);
-    let description = document.createElement("h3");
+    let description = document.createElement("p");
     description.classList.add("article__description");
     description.textContent = e.description;
     article.appendChild(description);
