@@ -1,6 +1,5 @@
 const test = require("tape");
 const request = require("../src/request");
-const nock = require("nock");
 
 test("Tape is working", t => {
   t.pass("Tape is working");
