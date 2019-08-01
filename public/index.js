@@ -1,3 +1,5 @@
+//import { isMainThread } from "worker_threads";
+
 let submit = document.querySelector(".query__submit");
 
 submit.addEventListener("click", e => {
@@ -14,15 +16,26 @@ const RenderArticles = apiObject => {
     let article = document.createElement("article");
     article.classList.add("article");
     let img = document.createElement("img");
+    img.classList.add("article__img");
     img.src = e.urlToImage;
     img.alt = "image from external source";
     article.appendChild(img);
-    let title = document.createElement("h2");
-    title.textContent = e.title;
-    article.appendChild(title);
+    let headline = document.createElement("h2");
+    headline.classList.add("article__headline");
+    headline.textContent = e.headline;
+    article.appendChild(headline);
+    let description = document.createElement("h3");
+    description.classList.add("article__description");
+    description.textContent = e.description;
+    article.appendChild(description);
+    let content = document.createElement("p");
+    content.classList.add("article__content");
+    content.textContent = e.content;
+    article.appendChild(content);
     section.appendChild(article);
   });
 };
+
 const backendCall = queryInput => {
   let xml = new XMLHttpRequest();
   let url = `/everything?q=${queryInput}`;
