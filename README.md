@@ -27,6 +27,20 @@ export API_KEY=bababacafe666
 or have environment variable API_KEY set in some other manner (ie. Config Vars in Heroku)
 It has to contain actual key from newsapi.org
 
+
+### Test coverage instructions (manual)
+
+Before running the first test please initialise nyc running:
+
+```
+npx nyc npm test
+```
+then when on master branch:
+```
+npm run report-coverage
+```
+That will create the report and upload to CodeCov and update our badge
+
 ### Design and Architecture
 
 - Design was kept simple as this was basic news app.
