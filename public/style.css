@@ -2,6 +2,7 @@ body {
   background-color: pink;
   margin: 0;
   padding: 0;
+  font-family: "Open Sans", serif;
 }
 
 a {
@@ -30,12 +31,19 @@ a {
   grid-area: description;
   margin: 0.2rem 0;
   text-align: justify;
+  font-style: italic;
+  font-family: "Merriweather", serif;
+  font-size: 0.9rem;
 }
 
 .article__content {
   grid-area: content;
   margin: 0.2rem 0;
   text-align: justify;
+  font-family: "Merriweather", serif;
+  font-size: 0.9rem;
+  max-height: 7rem;
+  overflow-y: hidden;
 }
 
 .article {
