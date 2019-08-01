@@ -26,8 +26,7 @@ module.exports = {
     });
   },
   apiRequest(req, res) {
-    let searchTerm = queryString.parse(url.parse(req.url).query).q;
-    console.log("Our search term:", searchTerm, url.parse(req.url));
+    const searchTerm = queryString.parse(url.parse(req.url).query).q;
     myRequest(
       logic.getURLwithAPI(logic.prepareAPIcallURL(searchTerm)),
       (err, apiRes) => {
