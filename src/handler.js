@@ -1,6 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 const myRequest = require("./request");
+const logic = require("./logic");
+const queryString = require("querystring");
+const url = require("url");
 
 module.exports = {
   staticAssets(req, res) {
@@ -23,14 +26,19 @@ module.exports = {
     });
   },
   apiRequest(req, res) {
-    myRequest(req.url, (err, apiRes) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.writeHead(apiRes.statusCode, { "content-type": "text/html" });
-        res.end(apiRes.body);
+    let searchTerm = queryString.parse(url.parse(req.url).query).q;
+    console.log("Our search term:", searchTerm, url.parse(req.url));
+    myRequest(
+      logic.getURLwithAPI(logic.prepareAPIcallURL(searchTerm)),
+      (err, apiRes) => {
+        if (err) {
+          console.log(err);
+        } else {
+          res.writeHead(apiRes.statusCode, { "content-type": "text/html" });
+          res.end(JSON.stringify(apiRes.body));
+        }
       }
-    });
+    );
   },
   notFound(req, res) {
     res.writeHead(404, { "content-type": "text/html" });
