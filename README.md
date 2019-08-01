@@ -1,7 +1,7 @@
 # BELO
 
 ![](https://travis-ci.org/fac-17/BELO.svg?branch=master)
-
+[![codecov](https://codecov.io/gh/fac-17/BELO/branch/master/graph/badge.svg)](https://codecov.io/gh/fac-17/BELO)
 ![Heroku](https://heroku-badge.herokuapp.com/?app=belo-wk5)
 
 # BELO Week 5
@@ -143,3 +143,4 @@ It has to contain actual key from newsapi.org
 - Use https module
 
 ![](https://i.imgur.com/x5XWU1E.jpg)
+
