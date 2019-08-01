@@ -1,8 +1,8 @@
 const router = require("../src/router");
 const test = require("tape");
 const supertest = require("supertest");
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
 test("Not found route test", t => {
   supertest(router)
@@ -24,15 +24,30 @@ test("Error on server side", t => {
     });
 });
 
-test("Is the / route link to /public/html", t =>{
-    supertest(router)
-     .get('/')
-     .expect(200)
-     .expect("content-type",/html/)
-     .end( (err,res)=>{
-         fs.readFile(path.join(__dirname,'..','/public/index.html'),'utf8',(err,content)=>{
-             t.equal(res.text,content,"Should have the same content");
-             t.end();
-         })
-     })
-})
+test("Is the / route link to /public/html", t => {
+  supertest(router)
+    .get("/")
+    .expect(200)
+    .expect("content-type", /html/)
+    .end((err, res) => {
+      fs.readFile(
+        path.join(__dirname, "..", "/public/index.html"),
+        "utf8",
+        (err, content) => {
+          t.equal(res.text, content, "Should have the same content");
+          t.end();
+        }
+      );
+    });
+});
+
+test("Is the Front End API calling the back-end", t => {
+  supertest(router)
+    .get("/everything")
+    .expect(200)
+    .expect("content-type", /html/)
+    .end((err, res) => {
+      t.equal(res.text, "");
+      t.end();
+    });
+});
