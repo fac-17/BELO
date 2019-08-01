@@ -1,6 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
+const myRequest = require("./request");
+
 module.exports = {
   staticAssets(req, res) {
     const extension = path.extname(req.url).substring(1);
@@ -18,6 +20,16 @@ module.exports = {
       } else {
         res.writeHead(200, { "content-type": extensionType[extension] });
         res.end(file);
+      }
+    });
+  },
+  apiRequest(req, res) {
+    myRequest(req.url, (err, apiRes) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.writeHead(apiRes.statusCode, { "content-type": "text/html" });
+        res.end(apiRes.body);
       }
     });
   },
