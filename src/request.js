@@ -19,3 +19,5 @@ const myRequest = (url, cb) => {
     });
   }
 };
+
+module.exports = myRequest;

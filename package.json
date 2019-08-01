@@ -21,9 +21,10 @@
   "homepage": "https://github.com/fac-17/BELO#readme",
   "devDependencies": {
     "eslint": "^6.1.0",
+    "tap-spec": "^5.0.0",
     "tape": "^4.11.0"
   },
   "dependencies": {
-    "tap-spec": "^5.0.0"
+    "nock": "^10.0.6"
   }
 }
