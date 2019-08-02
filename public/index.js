@@ -1,13 +1,14 @@
 const submit = document.querySelector(".query__submit");
 
 submit.addEventListener("click", e => {
-  const queryInput = document.querySelector(".query__input").value;
-  if (queryInput === "") {
+  const queryInput = document.querySelector(".query__input");
+  if (queryInput.value === "") {
     e.preventDefault();
     alert("Please submit a search term.");
+    queryInput.focus();
   } else {
     e.preventDefault();
-    backendCall(queryInput);
+    backendCall(queryInput.value);
   }
 });
 
