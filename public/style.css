@@ -88,7 +88,7 @@ input {
 .default {
   font-weight: bold;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .banner {
     flex-direction: column;
     justify-content: flex-start;
