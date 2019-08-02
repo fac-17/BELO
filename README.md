@@ -12,6 +12,7 @@
 [Gregor](https://github.com/Albadylic)
 ![](https://i.imgur.com/KczIls3.jpg)
 
+
 ## Installation Instructions
 
 ```
@@ -117,7 +118,7 @@ That will create the report and upload to CodeCov and update our badge
 
 - [x] Employ continuous integration on your project with Travis or a similar tool. (If you decide to use Travis, we strongly recommend that you host this project in your own repo rather than in your cohort's FAC repository to avoid all builds getting queued together)
 
-- [ ] Use CodeCov or a similar tool to report and track test coverage.
+- [x] Use CodeCov or a similar tool to report and track test coverage.
 
 - [ ] Include Error Handling. For example: if a user attempts to make a request to a non-existent route to your server (404 - as mentioned above), provide the user with a custom response. if there is a programmer error on your server (e.g. a handler function does not act as intended), provide the user with a custom response (500 status code).
 - [ ] Include a user input field on your web app and include server-side validation to protect your server from potentially malicious user input.
