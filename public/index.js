@@ -10,40 +10,51 @@ submit.addEventListener("click", e => {
     backendCall(queryInput);
   }
 });
-const renderArticle= e => {
+const renderArticle = e => {
   const article = document.createElement("article");
   article.classList.add("article");
-  const img = document.createElement("img");
-  img.classList.add("article__image");
-  img.src = e.urlToImage;
-  img.alt = "image from external source";
-  article.appendChild(img);
+  createImageElement(e.urlToImage, "article__image", article);
   const headline = document.createElement("h2");
   headline.classList.add("article__headline");
-  const link = document.createElement("a");
-  link.href = e.url;
-  link.textContent = e.title;
-  link.classList.add("article__link");
-  link.target = "_blank";
-  headline.appendChild(link);
+  createLinkElement(e.title, e.url, "article__link", headline);
   article.appendChild(headline);
-  const description = document.createElement("p");
-  description.classList.add("article__description");
-  description.textContent = e.description;
-  article.appendChild(description);
-  const content = document.createElement("p");
-  content.classList.add("article__content");
-  content.textContent = e.content;
-  article.appendChild(content);
+  createParagraphElement(e.description, "article__description", article);
+  createParagraphElement(e.content, "article__content", article);
   return article;
-}
+};
+const createImageElement = (src, className, parent) => {
+  const img = document.createElement("img");
+  img.classList.add(className);
+  img.src = src;
+  img.alt = "image from external source";
+  parent.appendChild(img);
+};
+
+const createLinkElement = (text, href, className, parent) => {
+  const link = document.createElement("a");
+  link.href = href;
+  link.textContent = text;
+  link.classList.add(className);
+  link.target = "_blank";
+  parent.appendChild(link);
+};
+
+const createParagraphElement = (text, className, parent) => {
+  let el = document.createElement("p");
+  el.classList.add(className);
+  el.textContent = text;
+  parent.appendChild(el);
+};
+const clearElement = el => {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+};
 const RenderArticles = apiObject => {
   const section = document.querySelector(".article__section");
-  while (section.firstChild) {
-    section.removeChild(section.firstChild);
-  }
+  clearElement(section);
   const articles = apiObject.articles;
-  articles.map(renderArticle).forEach(a=>section.appendChild(a));
+  articles.map(renderArticle).forEach(a => section.appendChild(a));
 };
 
 const backendCall = queryInput => {
