@@ -7,7 +7,7 @@
     "start": "node src/server.js",
     "test": "tape tests/*.test.js | tap-spec",
     "report-coverage": " nyc report --reporter=text-lcov > coverage.lcov && codecov -t 217b5dde-a4ae-4f4b-bd6f-ba3e3901a7c0",
-    "lint": "eslint"
+    "lint": "eslint */*.js"
   },
   "repository": {
     "type": "git",

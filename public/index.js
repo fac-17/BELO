@@ -8,7 +8,9 @@ submit.addEventListener("click", e => {
 
 const RenderArticles = apiObject => {
   const section = document.querySelector(".article__section");
-  section.innerHTML = "";
+  while (section.firstChild) {
+    section.removeChild(section.firstChild);
+  }
   const articles = apiObject.articles;
   articles.forEach(e => {
     const article = document.createElement("article");
