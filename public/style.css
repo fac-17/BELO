@@ -84,6 +84,10 @@ input {
   box-shadow: 0 1rem 1rem #ae95aa;
   margin: 1rem;
 }
+
+.default {
+  font-weight: bold;
+}
 @media screen and (max-width: 600px) {
   .banner {
     flex-direction: column;
