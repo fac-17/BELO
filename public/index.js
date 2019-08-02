@@ -1,9 +1,14 @@
 const submit = document.querySelector(".query__submit");
 
 submit.addEventListener("click", e => {
-  e.preventDefault();
   const queryInput = document.querySelector(".query__input").value;
-  backendCall(queryInput);
+  if (queryInput === "") {
+    e.preventDefault();
+    alert("Please submit a search term.");
+  } else {
+    e.preventDefault();
+    backendCall(queryInput);
+  }
 });
 
 const RenderArticles = apiObject => {
