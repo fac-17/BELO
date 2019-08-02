@@ -127,8 +127,7 @@ That will create the report and upload to CodeCov and update our badge
 ## Stretch goals
 
 😊:
-
-- [ ] Research and use Nock to mock the response of external API calls in your tests, and write tests for server routes that make API calls.
+- [x] Research and use Nock to mock the response of external API calls in your tests, and write tests for server routes that make API calls.
 
 - [ ] Create a route and functionality for a POST request. _(Not needed with our API)_
 
