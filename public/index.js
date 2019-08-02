@@ -10,40 +10,40 @@ submit.addEventListener("click", e => {
     backendCall(queryInput);
   }
 });
-
+const renderArticle= e => {
+  const article = document.createElement("article");
+  article.classList.add("article");
+  const img = document.createElement("img");
+  img.classList.add("article__image");
+  img.src = e.urlToImage;
+  img.alt = "image from external source";
+  article.appendChild(img);
+  const headline = document.createElement("h2");
+  headline.classList.add("article__headline");
+  const link = document.createElement("a");
+  link.href = e.url;
+  link.textContent = e.title;
+  link.classList.add("article__link");
+  link.target = "_blank";
+  headline.appendChild(link);
+  article.appendChild(headline);
+  const description = document.createElement("p");
+  description.classList.add("article__description");
+  description.textContent = e.description;
+  article.appendChild(description);
+  const content = document.createElement("p");
+  content.classList.add("article__content");
+  content.textContent = e.content;
+  article.appendChild(content);
+  return article;
+}
 const RenderArticles = apiObject => {
   const section = document.querySelector(".article__section");
   while (section.firstChild) {
     section.removeChild(section.firstChild);
   }
   const articles = apiObject.articles;
-  articles.forEach(e => {
-    const article = document.createElement("article");
-    article.classList.add("article");
-    const img = document.createElement("img");
-    img.classList.add("article__image");
-    img.src = e.urlToImage;
-    img.alt = "image from external source";
-    article.appendChild(img);
-    const headline = document.createElement("h2");
-    headline.classList.add("article__headline");
-    const link = document.createElement("a");
-    link.href = e.url;
-    link.textContent = e.title;
-    link.classList.add("article__link");
-    link.target = "_blank";
-    headline.appendChild(link);
-    article.appendChild(headline);
-    const description = document.createElement("p");
-    description.classList.add("article__description");
-    description.textContent = e.description;
-    article.appendChild(description);
-    const content = document.createElement("p");
-    content.classList.add("article__content");
-    content.textContent = e.content;
-    article.appendChild(content);
-    section.appendChild(article);
-  });
+  articles.map(renderArticle).forEach(a=>section.appendChild(a));
 };
 
 const backendCall = queryInput => {
